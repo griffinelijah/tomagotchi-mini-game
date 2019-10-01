@@ -10,10 +10,14 @@ class tomagotchi {
 }
 
 const tom = new tomagotchi('tom')
+
+
 console.log(tom);
 const game = {
+	pet: tom,
 	start(){
-		const $tomPic = $('<div class="tom">T</div>').appendTo('body')
+		const $tomPic = $('<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2BvXA_TY0edchJonvgYNceml5sm9qjMgE-Tc6PHVFQAffH90Lxg"></img>').appendTo('body')
+		const $tomStats = $(`<ul class="tom-stats"><li>${tom.name}</li><li>${tom.age}</li><li>${tom.hunger}</li><li>${tom.sleepiness}</li><li>${tom.boredom}</li></ul>`).appendTo('body')
 	}
 	//game stuff
 	//method to start timer - setInterval
@@ -30,6 +34,7 @@ const game = {
 //inster listeners here. $().on('click')
 $('button').on('click', () => {
 	game.start();
+
 
 	
 })
