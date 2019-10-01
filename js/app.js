@@ -13,7 +13,7 @@ const tom = new tomagotchi('tom')
 console.log(tom);
 const game = {
 	start(){
-
+		const $tomPic = $('<div class="tom">T</div>').appendTo('body')
 	}
 	//game stuff
 	//method to start timer - setInterval
@@ -28,4 +28,8 @@ const game = {
 
 
 //inster listeners here. $().on('click')
-$('.start').on('click')
+$('button').on('click', () => {
+	game.start();
+
+	
+})
