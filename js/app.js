@@ -24,7 +24,7 @@ const game = {
 		//console.log(this.pet);
 		$('#tomName').html($('#input-box').val());
 		const $backgroundPic = $(`<img class="background src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiUkImElP7kAhU5IjQIHS_fDuQQjRx6BAgBEAQ&url=https%3A%2F%2Fwallpapercave.com%2Fmaplestory-wallpapers&psig=AOvVaw2wJh09L8D6J7gpfo-y5N2e&ust=1570125655006466">`).appendTo('body')
-		const $tomPic = $('<img class="mush" src="https://thumbs.gfycat.com/PersonalGraciousAmericantoad-max-1mb.gif"></img>').appendTo('.imgDiv')
+		const $tomPic = $('<img class="mush" src="https://media.giphy.com/media/10NL14SuUwmc48/giphy.gif"></img>').appendTo('.imgDiv')
 	},//timer to increment age value as ttime goes on
 	//will also be used later on to determine hunger, boredom and sleepiness levels
 	setTimer(){
@@ -41,7 +41,7 @@ const game = {
 		$age.text(`Age: ${Math.floor(this.pet.age)}`)
 		$hunger.text(`Hunger: ${this.pet.hunger}`)
 		$sleep.text(`Sleepiness: ${this.pet.sleepiness}`)
-		$bored.text(`Boredom: ${this.pet.boredom}`)
+		$bored.text(`Boredom: ${this.pet.boredom}`);
 		if(this.pet.hunger >= 10){
 			$('.mush').attr("src", "https://media.giphy.com/media/wWkU8oPViyJ2w/200.gif")
 		}	else if(this.pet.sleepiness >= 10){
@@ -49,16 +49,17 @@ const game = {
 		} 	else if(this.pet.boredom >= 10){
 			$('.mush').attr("src", "https://media.giphy.com/media/wWkU8oPViyJ2w/200.gif")
 		}
-		if(this.pet.age >= 3 && this.pet.age< 10){
+		else if(this.pet.age >=1 && this.pet.age < 5){
+			$('.mush').attr("src", "https://thumbs.gfycat.com/PersonalGraciousAmericantoad-max-1mb.gif")
+		}	else if(this.pet.age >= 5 && this.pet.age < 10){
 			$('.mush').attr("src", "https://darkrulersmugen.weebly.com/uploads/1/7/2/9/17298946/6219522_orig.gif")
 		}	else if(this.pet.age >= 10){
 			$('.mush').attr("src", "https://conserver.files.wordpress.com/2010/01/stand1.gif?w=604")
 			
 			
 		}
-
 			
-		}, 300)
+		}, 10000)
 	},
 	//play function will let you interact with tamagotchi to lower boredom level, alerts you att 5,7 and 9 
 	playWithGotchi(){
@@ -102,7 +103,7 @@ const game = {
 	 	//}
 	 },//method to turn off lights begin increasing sleepiness levels again
 	 turnOnLights(){
-		$('body').css('background-color', '#FFF64D')
+		$('body').css('background-color', '#E8CDE1')
 	 	//let $sleep = $('#tomSleepiness');
 
 }
