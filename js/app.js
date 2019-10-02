@@ -1,10 +1,10 @@
 class tomagotchi {
 	constructor(name){
 		this.name = name,
-		this.age = 2,
-		this.hunger = 1,
-		this.sleepiness = 1,
-		this.boredom = 1
+		this.age = null,
+		this.hunger = null,
+		this.sleepiness = null,
+		this.boredom = null
 	}
 	//methods for feeding, dying, sleeping etc
 }
@@ -27,18 +27,33 @@ const game = {
 		const $sleep = $('#tomSleepiness');
 		const $bored = $('#tomBoredom');
 		const interval = setInterval(() => {
-			tom.age++
-			tom.hunger++
-			tom.sleepiness++
-			tom.boredom++
+			tom.age += .1
+			tom.hunger += 2
+			tom.sleepiness += 1
+			tom.boredom += 3
 
-		$age.text(`age: ${tom.age}`)
+		$age.text(`age: ${Math.floor(tom.age)}`)
 		$hunger.text(`hunger: ${tom.hunger}`)
 		$sleep.text(`sleepiness: ${tom.sleepiness}`)
 		$bored.text(`boredom: ${tom.boredom}`)
 			
 		}, 1000)
+	},
+	//play function will let you interact with tamagotchi to lower boredom level, alerts you att 5,7 and 9 
+	play(){
+		const $bored = $('#tomBoredom');
+		if($bored > 4){
+			alert('tom is bored');
+		}
+		// else if(tom.boredom > 4 && < 7){
+		// 	console.log('play with tom now');
+		// }
+		// else{
+		// 	console.log('tom will die of boredom');
+		// }
 	}
+
+
 	//game stuff
 	//method to start timer - setInterval
 //random stuuff to test if github working
@@ -55,6 +70,7 @@ const game = {
 $('.start').on('click', () => {
 	game.start();
 	game.setTimer();
+	game.play();
 
 	
 })
