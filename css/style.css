@@ -5,6 +5,7 @@ body {
 h1 {
 	text-align: center;
 	font-size: 55px;
+	font-family: courier;
 }
 
 .container {
@@ -18,10 +19,12 @@ h1 {
 .intButtons {
 	height: 75px;
 	width: 75px;
-	font-size: 15px;
+	font-size: 12px;
 	font-family: courier-new;
 	text-transform: uppercase;
+	border-radius: 10px;
 }
+
 
 form {
 	text-align: center;

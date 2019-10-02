@@ -59,7 +59,7 @@ const game = {
             	clearInterval(interval)
             }
 
-        }, 2000)
+        }, 10000)
     },
     //play function will let you interact with tamagotchi to lower boredom level, alerts you att 5,7 and 9 
     playWithGotchi() {
