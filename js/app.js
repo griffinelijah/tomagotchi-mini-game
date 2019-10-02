@@ -1,4 +1,4 @@
-class tomagotchi {
+class Tomagotchi {
 	constructor(name){
 		this.name = name,
 		this.age = null,
@@ -9,18 +9,20 @@ class tomagotchi {
 	//methods for feeding, dying, sleeping etc
 }
 
- tom = new tomagotchi('tom')
+ //tom = new tomagotchi('tom')
 
-console.log(tom);
+//console.log(tom);
 
 const game = {
-	pet: tom,
+	pet: null,
 	time: 10,
 	//tom = new tomagotchi('tom'),
 	start(name){
-		const $tomName = $('#tomName')
-		$tomName.text(`Name: `+ $('#input-box').val() )
-
+		const $tomName = $('#input-box').val();
+			console.log($tomName);
+		this.pet = new Tomagotchi($tomName)
+		console.log(this.pet);
+		$('#tomName').html($('#input-box').val());
 
 		const $tomPic = $('<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQquAoMnxzaw9H0H_U95d6DnxRdEdqWjzGW94gsUeK9Z3ljHAD9"></img>').appendTo('body')
 	},//timer to increment age value as ttime goes on
@@ -31,15 +33,15 @@ const game = {
 		const $sleep = $('#tomSleepiness');
 		const $bored = $('#tomBoredom');
 		const interval = setInterval(() => {
-			tom.age += .5
-			tom.hunger += 2
-			tom.sleepiness += 1
-			tom.boredom += 3
+			pet.age += .5
+			pet.hunger += 2
+			pet.sleepiness += 1
+			pet.boredom += 3
 
-		$age.text(`age: ${Math.floor(tom.age)}`)
-		$hunger.text(`hunger: ${tom.hunger}`)
-		$sleep.text(`sleepiness: ${tom.sleepiness}`)
-		$bored.text(`boredom: ${tom.boredom}`)
+		$age.text(`age: ${Math.floor(pet.age)}`)
+		$hunger.text(`hunger: ${pet.hunger}`)
+		$sleep.text(`sleepiness: ${pet.sleepiness}`)
+		$bored.text(`boredom: ${pet.boredom}`)
 			
 		}, 3000)
 	},
@@ -47,8 +49,8 @@ const game = {
 	playWithGotchi(){
 
 		let $bored = $('#tomBoredom');
-		tom.boredom -= 1
-		$bored.text(`boredom: ${tom.boredom}`)
+		pet.boredom -= 1
+		$bored.text(`boredom: ${pet.boredom}`)
 	// 	if($bored = 4){
 	// 		alert('tom is bored');
 	// 	}
@@ -62,16 +64,16 @@ const game = {
 	//Feed method will allow you to lower gotchis hunger level so e doesn't die
 	feedGotchi(){
 		let $feed = $('#tomHunger');
-		tom.hunger -= 1
-		$feed.text(`hunger: ${tom.hunger}`)
+		pet.hunger -= 1
+		$feed.text(`hunger: ${pet.hunger}`)
 
 	},
 	//turnOffLights will make page go dark and decrement sleepiness level so he doesn't die
 	 turnOffLights(){
 	 	let $sleep = $('#tomSleepiness');
 	 	if($('body').css({'background-color': '#262626', 'opacity': '0.9'}));{
-	 	tom.sleepiness -= 4;
-	 	$sleep.text(`sleepiness: ${tom.sleepiness}`)
+	 	pet.sleepiness -= 4;
+	 	$sleep.text(`sleepiness: ${pet.sleepiness}`)
 	 }
 	 	//while lights are off decrement sleepinless level?	
 		// if($('body').css({'background-color': '#262626', 'opacity': '0.9'})){
@@ -116,9 +118,10 @@ $('#lightsOn').on('click', () => {
 })
 
 $('form').on('submit', () => {
-	console.log('clicked');
-	console.log( $('#input-box').val());
+	//console.log('clicked');
+	//console.log( $('#input-box').val());
 	event.preventDefault();
+	$('#tomName').html();
 	game.start(name)
 	game.setTimer();
 	

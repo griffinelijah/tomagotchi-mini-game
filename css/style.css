@@ -11,4 +11,15 @@ body {
 	display: flex;
 	height: 75px;
 	width: 75px;
+	font-size: 15px;
+	font-family: courier-new;
+	text-transform: uppercase;
 }
+
+#input-box {
+	height: 20px;
+	width: 180px;	
+	margin: 10px;
+}
+
+
