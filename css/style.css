@@ -25,6 +25,7 @@ h1 {
 form {
 	text-align: center;
 }
+
 #input-box {
 	height: 20px;
 	width: 180px;	
@@ -34,10 +35,17 @@ form {
 .mush {
 	height: 300px;
 	width: 300px;
+	display: inline-block;
 }
 
 #tomStats {
+	display: flex;
 	text-align: center;
+	font-family: courier;
+	justify-content: space-between;
+	flex-direction: column;
+	text-align: left;
+	height: 200px;
 }
 
 .imgDiv {
