@@ -19,12 +19,12 @@ const game = {
 	//tom = new tomagotchi('tom'),
 	start(name){
 		const $tomName = $('#input-box').val();
-			console.log($tomName);
+			//console.log($tomName);
 		this.pet = new Tomagotchi($tomName)
-		console.log(this.pet);
+		//console.log(this.pet);
 		$('#tomName').html($('#input-box').val());
-
-		const $tomPic = $('<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQquAoMnxzaw9H0H_U95d6DnxRdEdqWjzGW94gsUeK9Z3ljHAD9"></img>').appendTo('body')
+		const $backgroundPic = $(`<img class="background src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiUkImElP7kAhU5IjQIHS_fDuQQjRx6BAgBEAQ&url=https%3A%2F%2Fwallpapercave.com%2Fmaplestory-wallpapers&psig=AOvVaw2wJh09L8D6J7gpfo-y5N2e&ust=1570125655006466">`).appendTo('body')
+		const $tomPic = $('<img class="mush" src="https://thumbs.gfycat.com/PersonalGraciousAmericantoad-max-1mb.gif"></img>').appendTo('.imgDiv')
 	},//timer to increment age value as ttime goes on
 	//will also be used later on to determine hunger, boredom and sleepiness levels
 	setTimer(){
@@ -33,47 +33,62 @@ const game = {
 		const $sleep = $('#tomSleepiness');
 		const $bored = $('#tomBoredom');
 		const interval = setInterval(() => {
-			pet.age += .5
-			pet.hunger += 2
-			pet.sleepiness += 1
-			pet.boredom += 3
+			this.pet.age += .5
+			this.pet.hunger += 2
+			this.pet.sleepiness += 1
+			this.pet.boredom += 3
 
-		$age.text(`age: ${Math.floor(pet.age)}`)
-		$hunger.text(`hunger: ${pet.hunger}`)
-		$sleep.text(`sleepiness: ${pet.sleepiness}`)
-		$bored.text(`boredom: ${pet.boredom}`)
+		$age.text(`Age: ${Math.floor(this.pet.age)}`)
+		$hunger.text(`Hunger: ${this.pet.hunger}`)
+		$sleep.text(`Sleepiness: ${this.pet.sleepiness}`)
+		$bored.text(`Boredom: ${this.pet.boredom}`)
+		if(this.pet.hunger >= 10){
+			$('.mush').attr("src", "https://media.giphy.com/media/wWkU8oPViyJ2w/200.gif")
+		}	else if(this.pet.sleepiness >= 10){
+			$('.mush').attr("src", "https://media.giphy.com/media/wWkU8oPViyJ2w/200.gif")
+		} 	else if(this.pet.boredom >= 10){
+			$('.mush').attr("src", "https://media.giphy.com/media/wWkU8oPViyJ2w/200.gif")
+		}
+		if(this.pet.age >= 3 && this.pet.age< 10){
+			$('.mush').attr("src", "https://darkrulersmugen.weebly.com/uploads/1/7/2/9/17298946/6219522_orig.gif")
+		}	else if(this.pet.age >= 10){
+			$('.mush').attr("src", "https://conserver.files.wordpress.com/2010/01/stand1.gif?w=604")
 			
-		}, 3000)
+			
+		}
+
+			
+		}, 300)
 	},
 	//play function will let you interact with tamagotchi to lower boredom level, alerts you att 5,7 and 9 
 	playWithGotchi(){
 
 		let $bored = $('#tomBoredom');
-		pet.boredom -= 1
-		$bored.text(`boredom: ${pet.boredom}`)
-	// 	if($bored = 4){
-	// 		alert('tom is bored');
-	// 	}
-	// 	 else if($bored = 7){
-	// 	 	alert('play with tom now');
-	// 	 }
-	// 	 else if($bored = 9){
-	// 	 	alert('tom will die of boredom');
-	// 	 }
+		this.pet.boredom -= 1
+		$bored.text(`boredom: ${this.pet.boredom}`)
+		// if($bored = 4){
+		// 	alert('tom is bored');
+		// }
+		//  else if($bored = 7){
+		//  	alert('play with tom now');
+		//  }
+		//  else if($bored = 9){
+		//  	alert('tom will die of boredom');
+		//  }
 	},
 	//Feed method will allow you to lower gotchis hunger level so e doesn't die
 	feedGotchi(){
 		let $feed = $('#tomHunger');
-		pet.hunger -= 1
-		$feed.text(`hunger: ${pet.hunger}`)
+		this.pet.hunger -= 1
+		$feed.text(`hunger: ${this.pet.hunger}`)
 
 	},
 	//turnOffLights will make page go dark and decrement sleepiness level so he doesn't die
 	 turnOffLights(){
 	 	let $sleep = $('#tomSleepiness');
 	 	if($('body').css({'background-color': '#262626', 'opacity': '0.9'}));{
-	 	pet.sleepiness -= 4;
-	 	$sleep.text(`sleepiness: ${pet.sleepiness}`)
+	 	this.pet.sleepiness -= 4;
+	 	$sleep.text(`sleepiness: ${this.pet.sleepiness}`)
 	 }
 	 	//while lights are off decrement sleepinless level?	
 		// if($('body').css({'background-color': '#262626', 'opacity': '0.9'})){
@@ -126,7 +141,6 @@ $('form').on('submit', () => {
 	game.setTimer();
 	
 });
-
 
 
 
