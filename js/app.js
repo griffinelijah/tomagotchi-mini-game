@@ -41,7 +41,7 @@ const game = {
 	}
 	//game stuff
 	//method to start timer - setInterval
-
+//random stuuff to test if github working
 
 
 	//printValues()
