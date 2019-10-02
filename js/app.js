@@ -54,8 +54,9 @@ const game = {
                 $('.mush').attr("src", "https://darkrulersmugen.weebly.com/uploads/1/7/2/9/17298946/6219522_orig.gif")
             } else if (this.pet.age >= 10) {
                 $('.mush').attr("src", "https://conserver.files.wordpress.com/2010/01/stand1.gif?w=604")
-
-
+            }
+            if(game.checkStats()){
+            	clearInterval(interval)
             }
 
         }, 2000)
@@ -109,17 +110,12 @@ const game = {
         //let $sleep = $('#tomSleepiness');
 
     },
-    endGame() {
-        //when time dies end game and restart
-        if (this.pet.hunger >= 10) {
-            pet: null
-        }
-        else if (this.pet.boredom >= 10) {
-            pet: null
-        }
-        else if (this.pet.sleepiness >= 10) {
-            pet: null
-        }
+    checkStats(){
+    	if(this.pet.hunger > 10 || this.pet.boredom > 10 || this.pet.sleepiness > 10){
+    		return true;
+    	}	else {
+    		return false;
+    	}
     }
 }
 
@@ -150,7 +146,6 @@ $('form').on('submit', () => {
     $('#tomName').html();
     game.start(name)
     game.setTimer();
-    game.endGame();
 
 });
 
