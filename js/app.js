@@ -35,9 +35,9 @@ const game = {
         const $bored = $('#tomBoredom');
         const interval = setInterval(() => {
             this.pet.age += .5
-            this.pet.hunger += 2
+            this.pet.hunger += 1
             this.pet.sleepiness += 1
-            this.pet.boredom += 3
+            this.pet.boredom += 2
 
             $age.text(`Age: ${Math.floor(this.pet.age)}`)
             $hunger.text(`Hunger: ${this.pet.hunger}`)
@@ -83,6 +83,7 @@ const game = {
         let $feed = $('#tomHunger');
         this.pet.hunger -= 1
         $feed.text(`hunger: ${this.pet.hunger}`)
+        const $feedPic = $('<img class="feedPic" src="http://cliparts.co/cliparts/kTK/oBE/kTKoBEzzc.svg"></img>').appendTo('.imgDiv')
 
     },
     //turnOffLights will make page go dark and decrement sleepiness level so he doesn't die
@@ -95,14 +96,14 @@ const game = {
             this.pet.sleepiness -= 4;
             $sleep.text(`sleepiness: ${this.pet.sleepiness}`)
         }
-        //while lights are off decrement sleepinless level?	
+        // while lights are off decrement sleepinless level?	
         // if($('body').css({'background-color': '#262626', 'opacity': '0.9'})){
         // 	tom.sleepiness -= 1
         // 	$sleep.text(`sleepiness: ${tom.sleepiness}`);
         // 	else if($('body').css('background-color') === 'yellow') {
         // 		//break to cancel loop? not working yet
         // 		break;
-        //}
+        // }
 
         //}
     }, //method to turn off lights begin increasing sleepiness levels again
@@ -119,6 +120,8 @@ const game = {
     	}
     }
 }
+
+
 
 
 
