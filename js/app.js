@@ -22,8 +22,9 @@ const game = {
         //console.log($tomName);
         this.pet = new Tomagotchi($tomName)
         //console.log(this.pet);
+        const $name = $('#tomName');
         $('#tomName').html($('#input-box').val());
-        const $backgroundPic = $(`<img class="background src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiUkImElP7kAhU5IjQIHS_fDuQQjRx6BAgBEAQ&url=https%3A%2F%2Fwallpapercave.com%2Fmaplestory-wallpapers&psig=AOvVaw2wJh09L8D6J7gpfo-y5N2e&ust=1570125655006466">`).appendTo('body')
+        $name.text(`Name: ${this.pet.name}`)
         const $tomPic = $('<img class="mush" src="https://media.giphy.com/media/10NL14SuUwmc48/giphy.gif"></img>').appendTo('.imgDiv')
     }, //timer to increment age value as ttime goes on
     //will also be used later on to determine hunger, boredom and sleepiness levels
@@ -59,7 +60,7 @@ const game = {
             	clearInterval(interval)
             }
 
-        }, 10000)
+        }, 5000)
     },
     //play function will let you interact with tamagotchi to lower boredom level, alerts you att 5,7 and 9 
     playWithGotchi() {
