@@ -83,7 +83,7 @@ const game = {
         let $feed = $('#tomHunger');
         this.pet.hunger -= 1
         $feed.text(`hunger: ${this.pet.hunger}`)
-        const $feedPic = $('<img id="feedPic" src="http://cliparts.co/cliparts/kTK/oBE/kTKoBEzzc.svg"></img>').appendTo('.imgDiv')
+        const $feedPic = $('<img id="feedPic" src="http://cliparts.co/cliparts/kTK/oBE/kTKoBEzzc.svg"></img>').appendTo('.imgDiv').delay(3000).fadeOut();
 
     },
     //turnOffLights will make page go dark and decrement sleepiness level so he doesn't die
@@ -95,7 +95,7 @@ const game = {
             })); {
             this.pet.sleepiness -= 4;
             $sleep.text(`sleepiness: ${this.pet.sleepiness}`)
-            const $sleepAni = $('<span id="sleepAni">zZzZzZZzZzz</span>').appendTo('.sleepDiv')
+            const $sleepAni = $('<span id="sleepAni">zZzZzZZzZzz</span>').appendTo('.sleepDiv').hide('fast')
         }
         // while lights are off decrement sleepinless level?	
         // if($('body').css({'background-color': '#262626', 'opacity': '0.9'})){
@@ -115,7 +115,13 @@ const game = {
     },
     checkStats(){
     	if(this.pet.hunger > 10 || this.pet.boredom > 10 || this.pet.sleepiness > 10){
+    		const $h2 = $('h2')
+    		const $body = $('body')
+    		$body.css('background-color', '#262626')
+    		$body.css('opacity', '0.9')
+    		$h2.html('You let him die :(').css('color', 'red').css('text-align', 'center')
     		return true;
+
     	}	else {
     		return false;
     	}

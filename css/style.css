@@ -40,6 +40,8 @@ form {
 	height: 200px;
 	width: 200px;
 	display: inline-block;
+	animation-name: bounceIn;
+	animation-duration: 10s;
 }
 
 #feedPic {
@@ -50,9 +52,13 @@ form {
 .sleepDiv {
 	text-align: center;
 	font-color: grey;
+	animation-name: bounceIn;
+	animation-duration: 10s;
 }
 
 #sleepAni {
+	animation-name: bounceIn;
+	animation-duration: 10s;
 	font-size: 60px;
 	text-align: center;
 }
@@ -70,20 +76,20 @@ form {
 
 .imgDiv {
 	text-align: center;
-	animation-duration: 3s;
-  	animation-name: fadeInOut, moveLeft300px, bounce;
-	animation-duration: 3s;
-	animation-iteration-count: 1;
+	animation-duration: 10s;
+  	animation-name: bounceIn;
 }
 
-@keyframes fadeInOut {
-  from {
-    margin-left: 100%;
-    width: 300%; 
+@keyframes bounceIn {
+   0% {
+    transform: scale(0.1);
+    opacity: 0;
   }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
   }
 }
