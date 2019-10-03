@@ -63,6 +63,11 @@ form {
 	text-align: center;
 }
 
+#playAni {
+	width: 200px;
+	height: 200px;
+}
+
 #tomStats {
 	display: flex;
 	text-align: center;

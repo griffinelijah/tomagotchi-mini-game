@@ -68,6 +68,7 @@ const game = {
         let $bored = $('#tomBoredom');
         this.pet.boredom -= 1
         $bored.text(`boredom: ${this.pet.boredom}`)
+        const $playAni = $('<img id="playAni" src="https://cdn.instructables.com/F9K/Y7QW/FG2MJF77/F9KY7QWFG2MJF77.LARGE.gif"></img>').appendTo('.imgDiv').delay(3000).fadeOut();
         // if($bored = 4){
         // 	alert('tom is bored');
         // }
