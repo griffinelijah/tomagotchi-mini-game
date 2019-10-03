@@ -60,7 +60,7 @@ const game = {
             	clearInterval(interval)
             }
 
-        }, 5000)
+        }, 10000)
     },
     //play function will let you interact with tamagotchi to lower boredom level, alerts you att 5,7 and 9 
     playWithGotchi() {
@@ -96,7 +96,7 @@ const game = {
             })); {
             this.pet.sleepiness -= 4;
             $sleep.text(`sleepiness: ${this.pet.sleepiness}`)
-            const $sleepAni = $('<span id="sleepAni">zZzZzZZzZzz</span>').appendTo('.sleepDiv').hide('fast')
+            const $sleepAni = $('<span id="sleepAni">zZzZzZZzZzz</span>').appendTo('.sleepDiv').delay(3000).fadeOut();
         }
         // while lights are off decrement sleepinless level?	
         // if($('body').css({'background-color': '#262626', 'opacity': '0.9'})){
