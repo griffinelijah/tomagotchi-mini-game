@@ -83,7 +83,7 @@ const game = {
         let $feed = $('#tomHunger');
         this.pet.hunger -= 1
         $feed.text(`hunger: ${this.pet.hunger}`)
-        const $feedPic = $('<img class="feedPic" src="http://cliparts.co/cliparts/kTK/oBE/kTKoBEzzc.svg"></img>').appendTo('.imgDiv')
+        const $feedPic = $('<img id="feedPic" src="http://cliparts.co/cliparts/kTK/oBE/kTKoBEzzc.svg"></img>').appendTo('.imgDiv')
 
     },
     //turnOffLights will make page go dark and decrement sleepiness level so he doesn't die
@@ -95,6 +95,7 @@ const game = {
             })); {
             this.pet.sleepiness -= 4;
             $sleep.text(`sleepiness: ${this.pet.sleepiness}`)
+            const $sleepAni = $('<span id="sleepAni">zZzZzZZzZzz</span>').appendTo('.sleepDiv')
         }
         // while lights are off decrement sleepinless level?	
         // if($('body').css({'background-color': '#262626', 'opacity': '0.9'})){
